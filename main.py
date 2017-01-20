@@ -16,6 +16,9 @@ class Index(webapp2.RequestHandler):
     def get(self):
         # choose a movie by invoking our new function
         movie = self.getRandomMovie()
+        movie2 = self.getRandomMovie()
+        if movie2 == movie:
+            movie2 = self.getRandomMovie()
 
         # build the response string
         content = "<h1>Movie of the Day</h1>"
@@ -26,7 +29,7 @@ class Index(webapp2.RequestHandler):
         content += "<br />"
         content += "<br />"
         content += "<h1>Tomorrow's Movie</h1>"
-        content += "<p>" + movie + "</p>"
+        content += "<p>" + movie2 + "</p>"
 
         self.response.write(content)
 
